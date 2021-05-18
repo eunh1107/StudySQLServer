@@ -29,7 +29,7 @@ SELECT name, height, addr FROM userTbl
 WHERE name LIKE '_비킴';
 
 -- SubQuery
--- 키가 175보다 큰사람들 조회
+-- 키가 177보다 큰사람들 조회
 SELECT * FROM userTbl
  WHERE height > 177;
 
@@ -41,9 +41,6 @@ SELECT * FROM userTbl
 SELECT * FROM userTbl
  WHERE height > ANY (SELECT height FROM userTbl WHERE addr = '경남');
 
-SELECT * FROM userTbl
-WHERE height > ANY (SELECT height FROM userTbl WHERE addr = '경남');
-
 -- (= ANY) ==(IN)은 서브쿼리에서 나온 결과와 일치하는 결과만 조회
 SELECT * FROM userTbl
 WHERE height > ANY (SELECT height FROM userTbl WHERE addr = '경남');
@@ -52,7 +49,7 @@ SELECT * FROM userTbl
 WHERE height IN (SELECT height FROM userTbl WHERE addr = '경남');
 
 -- ORDERBY
--- 키로 내리차순정렬 후 같은 값이 있으면 이름으로 오름차순
+-- 키로 내림차순정렬 후 같은 값이 있으면 이름으로 오름차순
 SELECT * FROM userTBL
 ORDER BY height DESC, name ASC;
 
